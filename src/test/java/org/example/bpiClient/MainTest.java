@@ -21,7 +21,16 @@ public class MainTest extends JsonResponseMockedTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         Main.main(new String[]{});
-        utilities.verify(() -> IOUtils.toString(any(URL.class), eq(StandardCharsets.UTF_8)), Mockito.times(2));
+        utilities.verify(() -> IOUtils.toString(any(URL.class), eq(StandardCharsets.UTF_8)), Mockito.times(3));
+    }
+
+    @Test
+    public void testMainWithValidJavaCurrencyAndNotSupportedInAPI() throws Exception {
+        String input = "KYD";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        Main.main(new String[]{});
+        utilities.verify(() -> IOUtils.toString(any(URL.class), eq(StandardCharsets.UTF_8)), Mockito.times(1));
     }
 
     @Test

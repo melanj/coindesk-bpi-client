@@ -2,6 +2,9 @@ package org.example.bpiClient.common;
 
 import org.example.bpiClient.model.CurrentPrice;
 
+/**
+ * Provides support to get BPI current price.
+ */
 public class CurrentPriceClient extends JsonClient<CurrentPrice> {
     private static final String URL_FORMAT = "%s/currentprice/%s.json";
     private final String baseUrl;
@@ -17,6 +20,9 @@ public class CurrentPriceClient extends JsonClient<CurrentPrice> {
         return String.format(URL_FORMAT, baseUrl, currency);
     }
 
+    /**
+     * A builder for {@link CurrentPriceClient}.
+     */
     public static class Builder {
 
         private String baseUrl;

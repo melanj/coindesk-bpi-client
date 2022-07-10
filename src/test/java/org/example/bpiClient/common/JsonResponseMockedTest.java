@@ -15,6 +15,7 @@ public abstract class JsonResponseMockedTest {
 
     private static final String URL_PART_CURRENT_PRICE = "currentprice";
     private static final String URL_PART_HISTORICAL = "historical";
+    private static final String URL_PART_SUPPORTED_CURRENCIES = "supported-currencies";
     protected MockedStatic<IOUtils> utilities;
 
     @BeforeMethod
@@ -25,7 +26,8 @@ public abstract class JsonResponseMockedTest {
                 {
                     String url = invocationOnMock.getArgument(0).toString();
                     return (url.contains(URL_PART_CURRENT_PRICE)) ? TestData.CURRENT_DATA : ((url.contains(URL_PART_HISTORICAL))
-                            ? TestData.HISTORICAL_DATA : TestData.SAMPLE_JSON);
+                            ? TestData.HISTORICAL_DATA : (url.contains(URL_PART_SUPPORTED_CURRENCIES)
+                            ? TestData.SUPPORTED_CURRENCIES_DATA : TestData.SAMPLE_JSON ));
                 });
     }
 

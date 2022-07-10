@@ -4,6 +4,9 @@ import org.example.bpiClient.model.HistoricalData;
 
 import java.time.LocalDate;
 
+/**
+ * Provides support to get BPI historical data.
+ */
 public class HistoricalDataClient extends JsonClient<HistoricalData> {
     private static final String URL_FORMAT = "%s/historical/close.json?start=%s&end=%s&currency=%s";
     private final String baseUrl;
@@ -24,6 +27,9 @@ public class HistoricalDataClient extends JsonClient<HistoricalData> {
                 baseUrl, start.toString(), end.toString(), currency);
     }
 
+    /**
+     * A builder for {@link HistoricalDataClient}.
+     */
     public static class Builder {
 
         private String baseUrl;

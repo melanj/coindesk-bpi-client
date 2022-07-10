@@ -37,6 +37,16 @@ Using a docker image from an image published at https://hub.docker.com/
 docker run -it melannj/coindesk-bpi-client:1.0.0
 ```
 
+e.g
+```bash
+$ docker run -it melannj/coindesk-bpi-client:1.0.0
+Please enter currency code:
+USD
+The current Bitcoin rate: $ 20,932.3020
+The lowest Bitcoin rate in the last 30 days: $ 19,115.5200
+The highest Bitcoin rate in the last 30 days: $ 27,533.1017
+```
+
 ## how to see coverage
 
 Tests can be run using following maven command and test reports are available at 'target/site/jacoco/index.html'
